@@ -62,7 +62,7 @@ namespace GraphApi.Controllers
             // Create a new instance of GraphServiceClient with the authentication provider.
             GraphServiceClient graphClient = new GraphServiceClient(authProvider);
 
-            var user = await graphClient.Users["haitham@aaronbadev.onmicrosoft.com"].Request().GetAsync();
+            var user = await graphClient.Users[Request.Headers["X-MS-CLIENT-PRINCIPAL-NAME"]].Request().GetAsync();
 
             return new JsonResult(user);
         }
