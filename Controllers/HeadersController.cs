@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 
@@ -9,10 +10,12 @@ namespace GraphApi.Controllers
     public class HeadersController : ControllerBase
     {
         private readonly ILogger<HeadersController> _logger;
+        private readonly IConfiguration _configuration;
 
-        public HeadersController(ILogger<HeadersController> logger)
+        public HeadersController(ILogger<HeadersController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _configuration = configuration;
         }
 
         [HttpGet]
@@ -28,5 +31,6 @@ namespace GraphApi.Controllers
 
             return Request.Headers;
         }
+
     }
 }
