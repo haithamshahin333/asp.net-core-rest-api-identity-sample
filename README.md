@@ -38,14 +38,14 @@ This [reference](https://techcommunity.microsoft.com/t5/azure-database-support-b
 2) Deploy the App to App Services and Setup Easy Auth
 3) Register the "Azure SQL Database" app by running `New-AzureADServicePrincipal -AppId “022907d3-0f1b-48f7-badc-1ba6abab6d66”  -DisplayName “Azure SQL Database”`
 4) Add a delegated App Permission for the App Registration that was made during the Easy Auth setup
-   a) Navigate to your App Registration
-   b) Select API Permissions
-   c) Add a permission
-   d) Search for Azure SQL Database under 'APIs my organization uses' (if you don't see anything appear, review step 3 above)
-   e) Selected Delegated Permissions and add user_impersonation
+   - Navigate to your App Registration
+   - Select API Permissions
+   - Add a permission
+   - Search for Azure SQL Database under 'APIs my organization uses' (if you don't see anything appear, review step 3 above)
+   - Selected Delegated Permissions and add user_impersonation
 5) Navigate to your App Service Web App and select Configuration in order to add the DB connectionString
-   a) Add a new connection string with key: connectionString, value: `Server=<ENDPOINT OF DB>; Database=<DATABASE NAME>`
-   b) Make the type 'SQLServer'
+   - Add a new connection string with key: connectionString, value: `Server=<ENDPOINT OF DB>; Database=<DATABASE NAME>`
+   - Make the type 'SQLServer'
 6) The app should restart after configuring the connectionString
 7) Navigate to the App Url and on the `/swagger` page, select the `/sqlconnection` endpoint which runs a basic query against the DB.
 
